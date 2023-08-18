@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Geometry Genius</title>
+    <style>
+      .btn {
+        color: white;
+      }
+      .btn:hover {
+        background-color: rgb(34 211 238);
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container p-8 mx-auto">
+      <section class="p-4 rounded-lg flex justify-between bg-[#1090d81a]">
+        <h1>
+          <span class="py-2 text-4xl font-bold">Interactive</span>
+          <br />Geometry Genius
+        </h1>
+        <button class="btn bg-[#1090D8] border-0 my-2 px-8">Blog</button>
+      </section>
+
+      <section class="grid gap-4 py-12 md:grid-cols-4">
+        <!-- card block -->
+
+        <header class="grid grid-cols-1 gap-4 md:col-span-3 md:grid-cols-3">
+          <!-- card 1 -->
+          <div class="text-center shadow-xl card bg-[#FBBCED]">
+            <figure>
+              <img class="p-4" src="./assets/triangle.png" alt="triange" />
+            </figure>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold">Triangle</h2>
+              <p>Area (A) = 0.5 * b * h</p>
+              <div class="flex justify-center gap-4">
+                <input
+                  id="triangle-base"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="b"
+                />
+                <label for="number">cm</label>
+                <input
+                  id="triangle-height"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="h"
+                />
+                <label for="number">cm</label>
+              </div>
+              <p class="text-2xl font-bold">
+                Area : <span id="result">0</span> cm<sup>2</sup>
+              </p>
+
+              <div class="justify-end card-actions">
+                <button
+                  onclick="triAngle()"
+                  class="w-full btn bg-[#1090D8] border-0 my-2"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- end of card 1 -->
+
+          <!-- card 2 -->
+          <div class="text-center shadow-xl card">
+            <figure>
+              <img class="p-4" src="./assets/rectangle.png" alt="triange" />
+            </figure>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold">Rectangle</h2>
+              <p>Area (A) = w * l</p>
+              <div class="flex justify-center gap-4">
+                <input
+                  id="rectangle-base"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="w"
+                />
+                <label for="number">cm</label>
+                <input
+                  id="rectangle-height"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="l"
+                />
+                <label for="number">cm</label>
+              </div>
+              <p class="text-2xl font-bold">
+                Area : <span id="rectangle-result">0</span> cm<sup>2</sup>
+              </p>
+
+              <div class="justify-end card-actions">
+                <button
+                  onclick="rectangle()"
+                  class="w-full btn bg-[#1090D8] border-0 my-2"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- end of card 2 -->
+
+          <!-- card 3 -->
+          <div class="text-center shadow-xl card">
+            <figure>
+              <img class="p-4" src="./assets/parallelogram.png" alt="triange" />
+            </figure>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold">Parallelogram</h2>
+              <p>Area (A) = b * h</p>
+              <!-- <p>b=10cm, h=12cm</p> -->
+              <div class="flex justify-center gap-4">
+                <input
+                  id="parallelogram-base"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="w"
+                />
+                <label for="number">cm</label>
+                <input
+                  id="parallelogram-height"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="l"
+                />
+                <label for="number">cm</label>
+              </div>
+
+              <p class="text-2xl font-bold">
+                Area : <span id="parallelogram-result">0</span> cm<sup>2</sup>
+              </p>
+
+              <div class="justify-end card-actions">
+                <button
+                  onclick="parallelogram()"
+                  class="w-full btn bg-[#1090D8] border-0 my-2"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- end of card 3 -->
+
+          <!-- card 4 -->
+          <div class="text-center shadow-xl card bg-[#69C7F0]">
+            <figure>
+              <img class="p-4" src="./assets/rhombus.png" alt="triange" />
+            </figure>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold">Rhombus</h2>
+              <p>Area (A) = 0.5 * d<sub>1</sub> * d<sub>2</sub></p>
+              <!-- <p>d1=16cm, h=8cm</p> -->
+              <div class="flex justify-center gap-4">
+                <input
+                  id="rhombus-base"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="d1"
+                />
+                <label for="number">cm</label>
+                <input
+                  id="rhombus-height"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="d2"
+                />
+                <label for="number">cm</label>
+              </div>
+
+              <p class="text-2xl font-bold">
+                Area : <span id="rhombus-result">0</span> cm<sup>2</sup>
+              </p>
+
+              <div class="justify-end card-actions">
+                <button
+                  onclick="rhombus()"
+                  class="w-full btn bg-[#1090D8] border-0 my-2"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- end of card 4 -->
+
+          <!-- card 5 -->
+          <div class="text-center shadow-xl card">
+            <figure>
+              <img class="p-4" src="./assets/pentagon.png" alt="triange" />
+            </figure>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold">Pentagon</h2>
+              <p>Area (A) = 0.5 * p * b</p>
+              <!-- <p>p=6cm, b=10cm</p> -->
+              <div class="flex justify-center gap-4">
+                <input
+                  id="pentagon-base"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="p"
+                />
+                <label for="number">cm</label>
+                <input
+                  id="pentagon-height"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="b"
+                />
+                <label for="number">cm</label>
+              </div>
+              <p class="text-2xl font-bold">
+                Area : <span id="pentagon-result">0</span> cm<sup>2</sup>
+              </p>
+
+              <div class="justify-end card-actions">
+                <button
+                  onclick="pentagon()"
+                  class="w-full btn bg-[#1090D8] border-0 my-2"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- end of card 5 -->
+
+          <!-- card 6 -->
+          <div class="text-center shadow-xl card">
+            <figure>
+              <img class="p-4" src="./assets/ellipse.png" alt="triange" />
+            </figure>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold">Ellipse</h2>
+              <p>Area (A) = πab</p>
+              <!-- <p>a=10cm, b=4cm</p> -->
+              <div class="flex justify-center gap-4">
+                <input
+                  id="ellipse-base"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="a"
+                />
+                <label for="number">cm</label>
+                <input
+                  id="ellipse-height"
+                  class="w-20 px-2 bg-[#F1F1F1]"
+                  type="number"
+                  placeholder="b"
+                />
+                <label for="number">cm</label>
+              </div>
+
+              <p class="text-2xl font-bold">
+                Area : <span id="ellipse-result">0</span> cm<sup>2</sup>
+              </p>
+
+              <div class="justify-end card-actions">
+                <button
+                  onclick="ellipse()"
+                  class="w-full btn bg-[#1090D8] border-0 my-2"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- end of card 6 -->
+        </header>
+
+        <!-- result block -->
+        <article>
+          <h1
+            class="py-8 text-[#1090D8] text-2xl font-bold text-center underline"
+          >
+            Area Calculation
+          </h1>
+          <div
+            id="calculation-entry"
+            class="flex flex-col justify-center overflow-x-auto text-center"
+          ></div>
+        </article>
+      </section>
+    </main>
+    <script src="./utils.js"></script>
+    <script src="./calculate.js"></script>
+  </body>
+</html>
