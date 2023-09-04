@@ -4,6 +4,7 @@ function getInputValue(inputId) {
   const inputValue = parseFloat(inputString)
   return inputValue
 }
+// comment added
 
 function getElementValue(elementId) {
   const element = document.getElementById(elementId)
